@@ -1,0 +1,14 @@
+{
+  "name": "csv-view",
+  "version": "0.0.0",
+  "description": "A very simple CSV viewer",
+  "main": "index.js",
+  "repository": "",
+  "author": "Wes Todd",
+  "license": "BSD",
+  "dependencies": {
+    "csv": "~0.3.0",
+    "connect": "~2.7.6",
+    "browserver-router": "~0.1.1"
+  }
+}
