@@ -68,7 +68,7 @@ function handelFiles(files) {
 
 }
 
-// does a lot of ugly javascript to create the dome elements
+// does a lot of ugly javascript to create the dom elements
 function buildTable(file, data) {
 	var tableContainer = document.createElement('div'),
 		header = document.createElement('h2'),
