@@ -544,7 +544,7 @@ textarea {
 	border: 2px solid #444;
 }
 .table-container table {
-	min-width: 3000px;
+	min-width: 100%;
 }
 
 table {
