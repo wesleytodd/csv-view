@@ -75,25 +75,26 @@ function buildTable(file, data) {
 		table = document.createElement('table'),
 		head = document.createElement('thead'),
 		headrow = document.createElement('tr')
-		tbody = document.createElement('tbody');
+		tbody = document.createElement('tbody')
+		dataFirstRow = data.shift();
 
-	for (var h in data.headers) {
+	for (var h in dataFirstRow) {
 		var th = document.createElement('th');
-		th.appendChild(document.createTextNode(data.headers[h]));
+		th.appendChild(document.createTextNode(dataFirstRow[h]));
 		head.appendChild(th);
 	}
 
-	for (var r in data.data) {
+	for (var r in data) {
 		var tr = document.createElement('tr');
 		var first = true;
-		for (var i in data.data[r]) {
+		for (var i in data[r]) {
 			if (first) {
 				var td = document.createElement('th');
 				first = false;
 			} else {
 				var td = document.createElement('td');
 			}
-			td.appendChild(document.createTextNode(data.data[r][i]));
+			td.appendChild(document.createTextNode(data[r][i]));
 			tr.appendChild(td);
 		}
 		tbody.appendChild(tr);

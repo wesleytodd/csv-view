@@ -6,24 +6,19 @@ var http = require('http'),
 
 var router = Router({
 	'/upload' : function(req, res) {
-		var json = {},
-			first = true;
-		fs.readFile(req.files['csv'].path, function(err, content) {
-			csv()
-			.from('' + content)
+		var json = [];
+
+		csv()
+			.from
+			.stream(fs.createReadStream(req.files['csv'].path))
 			.on('record', function(row, index) {
-				if (first) {
-					json.headers = row;
-					json.data = [];
-					first = false;
-				} else {
-					json.data.push(row);
-				}
-			}).on('end', function() {
+				json.push(row);
+			})
+			.on('end', function() {
 				res.writeHead(200, {'Content-Type': 'application/json'});
 				res.end(JSON.stringify(json));
 			});
-		});
+
 	}
 });
 
